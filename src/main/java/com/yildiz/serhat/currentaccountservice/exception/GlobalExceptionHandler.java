@@ -35,7 +35,6 @@ public class GlobalExceptionHandler {
     }
 
 
-
     @ExceptionHandler(CustomerNotFoundException.class)
     public ResponseEntity<ApiResponse> handleNotFoundException(CustomerNotFoundException exception) {
         ApiErrorType errorType = ApiErrorType.CUSTOMER_NOT_FOUND_EXCEPTION;

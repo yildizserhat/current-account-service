@@ -1,6 +1,5 @@
 package com.yildiz.serhat.currentaccountservice.service;
 
-import com.yildiz.serhat.currentaccountservice.controller.request.CustomerCreateRequestDTO;
 import com.yildiz.serhat.currentaccountservice.domain.entity.Customer;
 import com.yildiz.serhat.currentaccountservice.domain.model.CustomerDetails;
 

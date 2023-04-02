@@ -45,7 +45,7 @@ public class HomeController {
         model.addAttribute("customerFirstName", response.getFirstName());
         model.addAttribute("customerLastName", response.getLastName());
         model.addAttribute("transactions", list);
-        return "transaction";
+        return "transactions";
     }
 
     @PostMapping("/accounts")
@@ -59,6 +59,6 @@ public class HomeController {
     public String getAccount(Model model, @PathVariable Long id) {
         AccountCreateRequestDTO requestDTO = new AccountCreateRequestDTO(id, BigDecimal.ZERO);
         model.addAttribute("requestDTO", requestDTO);
-        return "account";
+        return "accounts";
     }
 }
