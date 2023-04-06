@@ -2,7 +2,6 @@ package com.yildiz.serhat.currentaccountservice.controller;
 
 
 import com.yildiz.serhat.currentaccountservice.domain.entity.Customer;
-import com.yildiz.serhat.currentaccountservice.domain.model.CustomerDetails;
 import com.yildiz.serhat.currentaccountservice.service.CustomerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
