@@ -16,8 +16,7 @@ public enum ApiErrorType {
 
 
     //Validation
-    CAR_NOT_FOUND_EXCEPTION(1005, "Car Not Found Exception.", HttpStatus.NOT_FOUND),
-    CUSTOMER_NOT_FOUND_EXCEPTION(1006, "Customer Not Found Exception.", HttpStatus.NOT_FOUND);
+    CUSTOMER_NOT_FOUND_EXCEPTION(1005, "Customer Not Found Exception.", HttpStatus.NOT_FOUND);
 
     private final int errorCode;
     private final String errorMessage;

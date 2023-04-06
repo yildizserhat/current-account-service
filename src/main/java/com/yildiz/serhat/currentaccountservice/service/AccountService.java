@@ -11,5 +11,4 @@ public interface AccountService {
     AccountCreateResponseDTO createAccount(AccountCreateRequestDTO requestDTO);
 
     List<Account> getAllAccountsByCustomer(Long id);
-
 }

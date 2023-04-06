@@ -6,6 +6,7 @@ import com.yildiz.serhat.currentaccountservice.domain.model.CustomerDetails;
 import com.yildiz.serhat.currentaccountservice.domain.model.TransactionDetails;
 import com.yildiz.serhat.currentaccountservice.service.AccountService;
 import com.yildiz.serhat.currentaccountservice.service.CustomerService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,7 +50,7 @@ public class HomeController {
     }
 
     @PostMapping("/accounts")
-    public String createAccount(@ModelAttribute("requestDTO") AccountCreateRequestDTO requestDTO) {
+    public String createAccount(@ModelAttribute("requestDTO") @Valid AccountCreateRequestDTO requestDTO) {
         accountService.createAccount(requestDTO);
         return "redirect:/v1/ui/customers/" + requestDTO.customerId();
     }

@@ -50,4 +50,11 @@ class CustomerControllerTest {
                 .andExpect(jsonPath("$.lastName").value("Yildiz"));
     }
 
+    @Test
+    @SneakyThrows
+    void shouldReturnNotFoundIfCustomerNotFound() {
+        mockMvc.perform(get("/v1/api/customers/1")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
+    }
 }

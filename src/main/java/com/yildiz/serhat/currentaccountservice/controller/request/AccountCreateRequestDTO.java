@@ -7,9 +7,9 @@ import jakarta.validation.constraints.Positive;
 import java.math.BigDecimal;
 
 public record AccountCreateRequestDTO(
-        @NotNull Long customerId,
-        @Positive
-        @Digits(integer = 4, fraction = 2)
-        @NotNull BigDecimal initialCredit
+        @NotNull(message = "CustomerId cannot be null") Long customerId,
+        @Positive(message = "Amount must be positive")
+        @Digits(integer = 4, fraction = 2, message = "Amount maximum could be 4 digits")
+        @NotNull(message = "Amount cannot be null") BigDecimal initialCredit
 ) {
 }

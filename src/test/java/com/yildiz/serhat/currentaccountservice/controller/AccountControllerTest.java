@@ -43,7 +43,7 @@ class AccountControllerTest {
     private AccountRepository accountRepository;
 
     @BeforeEach
-    void setup(){
+    void setup() {
         customerRepository.save(Customer.builder().id(1L).firstName("Serhat").lastName("Yildiz").build());
     }
 
@@ -80,4 +80,33 @@ class AccountControllerTest {
         assertEquals(all.get(0).getCustomer().getId(), 1L);
     }
 
+    @Test
+    @SneakyThrows
+    void shouldNotCreateAccountIfInitialCreditIsNegativeOrNonDigit() {
+        AccountCreateRequestDTO createRequestDTO = new AccountCreateRequestDTO(1L, valueOf(-1));
+
+        mockMvc.perform(post("/v1/api/accounts")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(createRequestDTO)))
+                .andExpect(status().isBadRequest());
+
+        List<Account> all = accountRepository.findAll();
+
+        assertEquals(all.size(), 2);
+    }
+
+    @Test
+    @SneakyThrows
+    void shouldNotCreateAccountIfCustomerIdNull() {
+        AccountCreateRequestDTO createRequestDTO = new AccountCreateRequestDTO(null, valueOf(1));
+
+        mockMvc.perform(post("/v1/api/accounts")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(createRequestDTO)))
+                .andExpect(status().isBadRequest());
+
+        List<Account> all = accountRepository.findAll();
+
+        assertEquals(all.size(), 2);
+    }
 }

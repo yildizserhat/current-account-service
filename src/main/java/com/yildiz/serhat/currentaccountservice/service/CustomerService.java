@@ -12,5 +12,4 @@ public interface CustomerService {
     List<Customer> findAllCustomers();
 
     CustomerDetails getCustomerDetails(Long id);
-
 }

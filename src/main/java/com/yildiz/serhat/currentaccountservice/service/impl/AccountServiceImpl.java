@@ -36,7 +36,7 @@ public class AccountServiceImpl implements AccountService {
         Customer customer = customerService.getCustomerById(requestDTO.customerId());
         Account newAccount = createNewAccount(customer);
 
-        log.info("Account created for customerId  {}", requestDTO.customerId());
+        log.info("Account created with Id: {} for customerId  {}", newAccount.getId(), requestDTO.customerId());
 
         TransactionResponse transactionResponse = new TransactionResponse(TransactionStatus.PENDING, ZERO);
         if (nonNull(requestDTO.initialCredit()) && requestDTO.initialCredit().compareTo(ZERO) > 0) {
