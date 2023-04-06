@@ -1,6 +1,7 @@
 package com.yildiz.serhat.currentaccountservice.controller;
 
 
+import com.yildiz.serhat.currentaccountservice.domain.entity.Customer;
 import com.yildiz.serhat.currentaccountservice.domain.model.CustomerDetails;
 import com.yildiz.serhat.currentaccountservice.service.CustomerService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -23,8 +24,8 @@ public class CustomerController {
 
     @GetMapping("/{id}")
     @Operation(summary = "Get Customer Details By id")
-    public ResponseEntity<CustomerDetails> getCustomerById(@PathVariable("id") Long id) {
-        return new ResponseEntity<>(customerService.getCustomerDetails(id), HttpStatus.OK);
+    public ResponseEntity<Customer> getCustomerById(@PathVariable("id") Long id) {
+        return new ResponseEntity<>(customerService.getCustomerById(id), HttpStatus.OK);
     }
 
 }

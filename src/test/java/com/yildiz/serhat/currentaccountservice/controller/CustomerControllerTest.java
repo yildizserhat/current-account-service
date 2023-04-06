@@ -45,7 +45,6 @@ class CustomerControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.firstName").exists())
                 .andExpect(jsonPath("$.lastName").exists())
-                .andExpect(jsonPath("$.accounts").exists())
                 .andExpect(jsonPath("$.firstName").value("Serhat"))
                 .andExpect(jsonPath("$.lastName").value("Yildiz"));
     }
