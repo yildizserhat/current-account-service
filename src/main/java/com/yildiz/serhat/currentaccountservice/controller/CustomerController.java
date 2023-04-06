@@ -22,7 +22,7 @@ public class CustomerController {
     private final CustomerService customerService;
 
     @GetMapping("/{id}")
-    @Operation(summary = "Get Customer Details By id")
+    @Operation(summary = "Get Customer By id")
     public ResponseEntity<Customer> getCustomerById(@PathVariable("id") Long id) {
         return new ResponseEntity<>(customerService.getCustomerById(id), HttpStatus.OK);
     }
