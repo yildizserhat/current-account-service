@@ -1,5 +1,6 @@
 package com.yildiz.serhat.currentaccountservice.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -39,8 +40,10 @@ public class Account extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
+    @JsonIgnore
     private Customer customer;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "account")
+    @JsonIgnore
     private List<Transaction> transactions = new ArrayList<>();
 }

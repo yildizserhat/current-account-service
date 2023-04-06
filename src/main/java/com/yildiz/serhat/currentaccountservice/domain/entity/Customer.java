@@ -1,6 +1,7 @@
 package com.yildiz.serhat.currentaccountservice.domain.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,6 +17,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -38,7 +40,8 @@ public class Customer extends BaseEntity {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "customer")
-    private List<Account> accounts;
+    private List<Account> accounts = new ArrayList<>();
 
 }
